@@ -15,12 +15,40 @@ c.strokeStyle = "limegreen";
 c.arc(800, 400, 50, 0, 2 * Math.PI);
 c.stroke();
 
+let x = 600;
+let y = 250
+let xVelocity = 4;
+let yVelocity = 4;
+let radius = 50;
 // TODO follow the instructions in the Canvas Pt. 2 Pre-Lesson to see how to build this project
 const animate = () => {
+  requestAnimationFrame(animate);
+  c.clearRect(0, 0, innerWidth, innerHeight)
+  c.beginPath();
+  c.strokeStyle = "limegreen";
+  c.arc(x, y, radius, 0, 2 * Math.PI);
+  c.stroke();
 
-}
 
-// animate()
+  if(x + radius > innerWidth || x - radius < 0){
+    xVelocity = -xVelocity
+  }
+
+
+  x += xVelocity
+
+
+  if(y + radius > innerHeight || y - radius < 0){
+    yVelocity = -yVelocity
+  }
+
+
+  y += yVelocity
+  console.log("animate function was called");
+};
+
+
+animate();
 
 
 
